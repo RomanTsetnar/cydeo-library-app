@@ -28,9 +28,7 @@ public class Login_step_defs {
 
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
-        String expectedTitle = "Login - Library";
-        String actualTitle = Driver.getDriver().getTitle();
-        Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
+        Assert.assertTrue(logInPage.dashBoard.isDisplayed());
 
     }
 
@@ -38,9 +36,26 @@ public class Login_step_defs {
     @When("user enters student username and user enters student password")
     public void userEntersStudentUsernameAndUserEntersStudentPassword() {
         logInPage.LogIn(ConfigurationReader.getProperties("username.student1"), ConfigurationReader.getProperties("password.student1"));
-        String expectedTitle = "Login - Library";
-        String actualTitle = Driver.getDriver().getTitle();
-        Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
 
+
+    }
+
+    @Given("user enters librarian {string} and {string}")
+    public void userEntersLibrarianAnd(String userName, String password) {
+        logInPage.LogIn(userName,password);
+
+    }
+
+    @Given("user enters student {string} and user enters student {string}")
+    public void userEntersStudentAndUserEntersStudent(String username, String password) {
+        logInPage.LogIn(username,password);
+
+
+    }
+
+
+    @Then("student should see Book management header is displayed.")
+    public void studentShouldSeeBookManagementHeaderIsDisplayed() {
+        Assert.assertTrue(logInPage.BookManagementHeader.isDisplayed());
     }
 }
