@@ -12,7 +12,7 @@ public class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public static void LogIn (String username, String password) {
+    public void LogIn (String username, String password) {
         Driver.getDriver().get(ConfigurationReader.getProperties("library.url"));
         WebElement userNameInputBox = Driver.getDriver().findElement(By.id("inputEmail"));
         userNameInputBox.sendKeys(username);
@@ -27,4 +27,10 @@ public class BasePage {
 
     @FindBy(xpath = "//span[.='Borrowing Books']")
     public WebElement borrowingBooksModule;
+
+    @FindBy(id = "user_avatar")
+    public WebElement userAvatar;
+
+    @FindBy(xpath = "//a[.='Log Out']")
+    public WebElement logOutBtn;
 }

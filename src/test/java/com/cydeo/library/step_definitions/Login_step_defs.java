@@ -7,24 +7,40 @@ import com.cydeo.library.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Login_step_defs {
+    LogIn_page logInPage = new LogIn_page();
 
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-
-
+        /**
+         * our log in method has this url built in already
+         * skip this step
+         */
     }
-    @When("user enters librarian username")
-    public void user_enters_librarian_username() {
 
+    @When("user enters librarian username and password")
+    public void userEntersLibrarianUsernameAndPassword() {
+        logInPage.LogIn(ConfigurationReader.getProperties("username.librarian1"), ConfigurationReader.getProperties("password.librariran1"));
     }
-    @When("user enters librarian password")
-    public void user_enters_librarian_password() {
 
-    }
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
+        String expectedTitle = "Login - Library";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
+
+    }
+
+
+    @When("user enters student username and user enters student password")
+    public void userEntersStudentUsernameAndUserEntersStudentPassword() {
+        logInPage.LogIn(ConfigurationReader.getProperties("username.student1"), ConfigurationReader.getProperties("password.student1"));
+        String expectedTitle = "Login - Library";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
+
     }
 }
