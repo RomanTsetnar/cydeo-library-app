@@ -7,10 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Driver_utils {
-    private Driver_utils(){}
+public class Driver {
+    private Driver(){}
 
-//    private static WebDriver driver;
     private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     public static WebDriver getDriver(){
