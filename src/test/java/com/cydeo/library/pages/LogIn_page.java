@@ -8,13 +8,4 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LogIn_page extends BasePage {
 
-    public static void logIn(String username,String password){
-        Driver.getDriver().get(ConfigurationReader.getProperties("library.url"));
-        WebElement userNameInputBox = Driver.getDriver().findElement(By.id("inputEmail"));
-        userNameInputBox.sendKeys(username);
-        WebElement passwordInputBox = Driver.getDriver().findElement(By.id("inputPassword"));
-        passwordInputBox.sendKeys(password);
-        WebElement signInBtn = Driver.getDriver().findElement(By.xpath("//button[.='Sign in']"));
-        signInBtn.click();
-    }
 }
