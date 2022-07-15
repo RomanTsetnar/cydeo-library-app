@@ -8,13 +8,11 @@ Feature: Library app login feature
 
   @librarian @employee
   Scenario: Login as librarian
-    When user enters librarian username
-    And user enters librarian password
+    When user enters librarian username and password
     Then user should see the dashboard
 
 
   @student
   Scenario: Login as student
-    When user enters student username
-    And user enters student password
+    When user enters student username and user enters student password
     Then user should see the dashboard
