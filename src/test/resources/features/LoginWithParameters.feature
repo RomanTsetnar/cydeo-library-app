@@ -10,3 +10,11 @@ Feature: TC3
     Scenario: Log in as a student with parameters
       Given user enters student "student2@library" and user enters student "zyxa10vg"
       Then student should see Book management header is displayed.
+
+@wip
+  Scenario: Login as librarian same line
+    Given I am on the login page
+    When I login using "librarian1@library" and "qU9mrvur"
+
+    Then dashboard should be displayed
+    And there should be 171 users
