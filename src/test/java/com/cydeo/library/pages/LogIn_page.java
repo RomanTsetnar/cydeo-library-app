@@ -4,9 +4,31 @@ import com.cydeo.library.utilities.ConfigurationReader;
 import com.cydeo.library.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogIn_page extends BasePage {
+public class LogIn_page extends BasePage{
 
 
+//    public static void logIn(String username,String password){
+//        Driver.getDriver().get(ConfigurationReader.getProperties("library.url"));
+//        WebElement userNameInputBox = Driver.getDriver().findElement(By.id("inputEmail"));
+//        userNameInputBox.sendKeys(username);
+//        WebElement passwordInputBox = Driver.getDriver().findElement(By.id("inputPassword"));
+//        passwordInputBox.sendKeys(password);
+//        WebElement signInBtn = Driver.getDriver().findElement(By.xpath("//button[.='Sign in']"));
+//        signInBtn.click();
+//    }
+
+//    @FindBy(id="inputEmail")
+//    public WebElement userNameInputBox;
+//
+//    @FindBy(id="inputPassword")
+//    public WebElement passwordInputBox;
+//
+//    @FindBy(xpath = "//button[.='Sign in']")
+//    public WebElement signInBtn;
+
+@FindBy(xpath = "//h2[@id='user_count']")
+    public  WebElement userCount;
 }

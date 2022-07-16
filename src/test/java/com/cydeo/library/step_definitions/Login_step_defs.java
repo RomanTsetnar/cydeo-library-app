@@ -4,10 +4,13 @@ import com.cydeo.library.pages.BasePage;
 import com.cydeo.library.pages.LogIn_page;
 import com.cydeo.library.utilities.ConfigurationReader;
 import com.cydeo.library.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_step_defs {
     LogIn_page logInPage = new LogIn_page();
@@ -32,6 +35,7 @@ public class Login_step_defs {
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
 
+
     }
 
 
@@ -43,4 +47,49 @@ public class Login_step_defs {
         Assert.assertEquals("dashboard verification failed", expectedTitle, actualTitle);
 
     }
+
+    @When("user enters student username")
+        public void user_enters_student_username() {
+    }
+    @When("user enters student password")
+        public void user_enters_student_password() {
+
+        }
+
+    @Given("I am on the login page")
+    public void iAmOnTheLoginPage() {
+
+    }
+
+    @When("I login using {string} and {string}")
+    public void iLoginUsingAnd(String username, String password) {
+        logInPage.LogIn(username,password);
+    }
+
+
+    @Then("dashboard should be displayed")
+    public void dashboardShouldBeDisplayed() {
+        String expectedURL ="dashboard";
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.urlContains(expectedURL));
+
+        String actualURL = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue("dashboard is not appear on URL",actualURL.contains(expectedURL));
+
+
+
+    }
+
+
+
+    @And("there should be {int} users")
+    public void thereShouldBeUsers(int user) {
+        String expectedUser= ""+user;
+        String actual = logInPage.userCount.getText();
+
+        Assert.assertEquals("Number of user is not matching", expectedUser,actual);
+
+    }
 }
+
