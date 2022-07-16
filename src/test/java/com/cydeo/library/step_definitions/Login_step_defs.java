@@ -62,7 +62,6 @@ public class Login_step_defs {
         logInPage.LogIn(username,password);
     }
 
-
     @Then("dashboard should be displayed")
     public void dashboardShouldBeDisplayed() {
         String expectedURL ="dashboard";
