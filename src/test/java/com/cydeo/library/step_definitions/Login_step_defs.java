@@ -18,10 +18,6 @@ public class Login_step_defs {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        /**
-         * our log in method has this url built in already
-         * skip this step
-         */
     }
 
     @When("user enters librarian username and password")
@@ -81,14 +77,12 @@ public class Login_step_defs {
 
     }
 
-
-
     @And("there should be {int} users")
     public void thereShouldBeUsers(int user) {
         String expectedUser= ""+user;
         String actual = logInPage.userCount.getText();
 
-        Assert.assertEquals("Number of user is not matching", expectedUser,actual);
+        Assert.assertEquals("Number of users is not matching", expectedUser,actual);
 
     }
 }
