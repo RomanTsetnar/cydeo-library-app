@@ -36,4 +36,7 @@ public class BasePage {
 
     @FindBy(id = "navbarDropdown")
     public WebElement userNameCredentialsInTheTopRightCornerWhenLoggedIn;
+
+    @FindBy(xpath="//span[.='Users']")
+    public WebElement usersLink;
 }
