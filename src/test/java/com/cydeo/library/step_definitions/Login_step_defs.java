@@ -2,6 +2,7 @@ package com.cydeo.library.step_definitions;
 
 import com.cydeo.library.pages.BasePage;
 import com.cydeo.library.pages.LogIn_page;
+import com.cydeo.library.utilities.BrowserUtilities;
 import com.cydeo.library.utilities.ConfigurationReader;
 import com.cydeo.library.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_step_defs {
     LogIn_page logInPage = new LogIn_page();
+
 
 
     @Given("user is on the login page")
@@ -89,6 +91,16 @@ public class Login_step_defs {
         String actualUsers = logInPage.numberOfUsers.getText();
         Assert.assertEquals("Number of users is not matching", expectedUsers, actualUsers);
 
+    }
+    @When("user enter {string} and {string}")
+    public void user_enter_and(String expectedUserName, String expectedPassword) {
+        logInPage.LogIn(expectedUserName,expectedPassword);
+    }
+    @Then("user should be able to see his username displayed in the account section")
+    public void user_should_be_able_to_see_his_username_displayed_in_the_account_section() throws InterruptedException {
+        BrowserUtilities.waitForVisibilityOf(logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn);
+        Assert.assertTrue("credentials verification failed",logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn.isDisplayed());
+        System.out.println(logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn.getText());
     }
 
 }

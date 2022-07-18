@@ -30,5 +30,9 @@ public class BrowserUtilities {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
+    public static void waitForVisibilityOf(WebElement element){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
 }

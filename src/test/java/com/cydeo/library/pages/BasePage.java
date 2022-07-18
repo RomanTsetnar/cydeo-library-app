@@ -33,4 +33,7 @@ public class BasePage {
 
     @FindBy(xpath = "//a[.='Log Out']")
     public WebElement logOutBtn;
+
+    @FindBy(id = "navbarDropdown")
+    public WebElement userNameCredentialsInTheTopRightCornerWhenLoggedIn;
 }
