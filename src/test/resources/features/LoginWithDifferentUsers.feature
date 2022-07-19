@@ -1,6 +1,7 @@
+@smoke
 Feature: Log in with different user accounts
 
-  @wip
+  @completed
   Scenario Outline:
     Given user is on the login page
     When user enter "<username>" and "<password>"

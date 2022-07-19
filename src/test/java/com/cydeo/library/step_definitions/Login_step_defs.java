@@ -17,7 +17,6 @@ public class Login_step_defs {
     LogIn_page logInPage = new LogIn_page();
 
 
-
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
         /**
@@ -47,13 +46,13 @@ public class Login_step_defs {
 
     @Given("user enters librarian {string} and {string}")
     public void userEntersLibrarianAnd(String userName, String password) {
-        logInPage.LogIn(userName,password);
+        logInPage.LogIn(userName, password);
 
     }
 
     @Given("user enters student {string} and user enters student {string}")
     public void userEntersStudentAndUserEntersStudent(String username, String password) {
-        logInPage.LogIn(username,password);
+        logInPage.LogIn(username, password);
 
 
     }
@@ -65,17 +64,18 @@ public class Login_step_defs {
     }
 
 
-
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
 
     }
+
     @When("I login using {string} and {string}")
     public void i_login_using_and(String username, String password) {
-        logInPage.LogIn(username,password);
+        logInPage.LogIn(username, password);
 
 
     }
+
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
         String expectedURL = "dashboard";
@@ -85,21 +85,24 @@ public class Login_step_defs {
         Assert.assertTrue("dashboard is not appear on URL", actualURL.contains(expectedURL));
 
     }
+
     @Then("there should be {int} users")
     public void there_should_be_users(int user) {
-        String expectedUsers ="" +user;
+        String expectedUsers = "" + user;
         String actualUsers = logInPage.numberOfUsers.getText();
         Assert.assertEquals("Number of users is not matching", expectedUsers, actualUsers);
 
     }
+
     @When("user enter {string} and {string}")
     public void user_enter_and(String expectedUserName, String expectedPassword) {
-        logInPage.LogIn(expectedUserName,expectedPassword);
+        logInPage.LogIn(expectedUserName, expectedPassword);
     }
+
     @Then("user should be able to see his username displayed in the account section")
     public void user_should_be_able_to_see_his_username_displayed_in_the_account_section() throws InterruptedException {
         BrowserUtilities.waitForVisibilityOf(logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn);
-        Assert.assertTrue("credentials verification failed",logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn.isDisplayed());
+        Assert.assertTrue("credentials verification failed", logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn.isDisplayed());
         System.out.println(logInPage.userNameCredentialsInTheTopRightCornerWhenLoggedIn.getText());
     }
 

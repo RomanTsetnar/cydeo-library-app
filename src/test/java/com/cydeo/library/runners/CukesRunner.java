@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/cydeo/library/step_definitions",
         dryRun = false,
-        tags = "@librarian and @employee",
+        tags = "@smoke1",
         publish = true
 )
 

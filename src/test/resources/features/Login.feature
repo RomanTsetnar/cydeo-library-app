@@ -1,3 +1,4 @@
+@smoke1
 Feature: Library app login feature
   User Story:
   As a user, I should be able to login with correct
