@@ -1,5 +1,6 @@
 
-*.iml
-out
-target
+*.iws
 .idea
+.DS_Store
+simple-cucumber-demo.iml
+/target/
